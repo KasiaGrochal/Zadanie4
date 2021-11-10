@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Employee {
@@ -14,7 +15,15 @@ public class Employee {
         System.out.println("Last name:");
         setLastName(input.nextLine());
         System.out.println("Salary: ");
-        setSalary(input.nextDouble());
+        for (int i=0; i<1;i++){
+            try {
+                setSalary(input.nextDouble());
+            } catch (InputMismatchException e) {
+                System.out.println("You entered string, please enter integer value.");
+                i--;
+                input.nextLine();
+            }
+        }
         input.nextLine();
         System.out.println("You have successfully added an employee\n");
     }
