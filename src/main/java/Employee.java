@@ -19,7 +19,7 @@ public class Employee {
             try {
                 setSalary(input.nextDouble());
             } catch (InputMismatchException e) {
-                System.out.println("You entered string, please enter integer value.");
+                System.out.println("You've entered a string, please enter an integer value");
                 i--;
                 input.nextLine();
             }

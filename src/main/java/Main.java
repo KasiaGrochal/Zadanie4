@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -9,13 +10,21 @@ public class Main {
         boolean quit = false;
         List<Employee> employeeList = new ArrayList<>();
 
-        for (int i = 0; i <5 ; i++) {
+        for (int i = 0; i < 5; i++) {
             employeeList.add(addNewEmployee());
         }
         while (!quit) {
             printMainMenu();
-            int action = scanner.nextInt();
-            scanner.nextLine();
+            int action = 0;
+            for (int i = 0; i < 1; i++) {
+                try {
+                    action = scanner.nextInt();
+                } catch (InputMismatchException a) {
+                    System.out.println("You've entered a string, please enter an integer value");
+                    i--;
+                    scanner.nextLine();
+                }
+            }
 
             switch (action) {
                 case 1:
