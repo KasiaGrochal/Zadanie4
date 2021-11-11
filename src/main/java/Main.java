@@ -6,27 +6,16 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        boolean quit = false;
+
+        boolean appOn = true;
         List<Employee> employeeList = new ArrayList<>();
 
-        for (int i = 0; i < 5; i++) {
-            employeeList.add(addNewEmployee());
-        }
-        while (!quit) {
-            printMainMenu();
-            int action = 0;
-            for (int i = 0; i < 1; i++) {
-                try {
-                    action = scanner.nextInt();
-                } catch (InputMismatchException a) {
-                    System.out.println("You've entered a string, please enter an integer value");
-                    i--;
-                    scanner.nextLine();
-                }
-            }
+        addNewEmployee(employeeList, 2);
 
-            switch (action) {
+        while (appOn) {
+            printMainMenu();
+
+            switch (getAction()) {
                 case 1:
                     getSalaryTotal(employeeList);
                     break;
@@ -34,10 +23,10 @@ public class Main {
                     getAllData(employeeList);
                     break;
                 case 3:
-                    employeeList.add(addNewEmployee());
+                    addNewEmployee(employeeList, 1);
                     break;
                 case 4:
-                    quit = true;
+                    appOn = false;
                     System.out.println("Closing the app...");
                     break;
             }
@@ -52,10 +41,12 @@ public class Main {
                 "4 - End program\n");
     }
 
-    public static Employee addNewEmployee() {
-        Employee newEmployee = new Employee();
-        newEmployee.addDetails();
-        return newEmployee;
+    public static void addNewEmployee(List<Employee> list, int quantity) {
+        for (int i = 0; i < quantity; i++) {
+            Employee newEmployee = new Employee();
+            newEmployee.addDetails();
+            list.add(newEmployee);
+        }
     }
 
     public static void getSalaryTotal(List<Employee> list) {
@@ -71,4 +62,22 @@ public class Main {
             employee.getAllData();
         }
     }
+
+    public static int getAction() {
+        Scanner scanner = new Scanner(System.in);
+        int action = 0;
+        for (int i = 0; i < 1; i++) {
+            try {
+                action = scanner.nextInt();
+            } catch (InputMismatchException a) {
+                System.out.println("You've entered a string, please enter an integer value");
+                i--;
+                printMainMenu();
+                scanner.nextLine();
+            }
+        }
+        return action;
+    }
+
 }
+
