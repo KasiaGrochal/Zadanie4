@@ -46,11 +46,15 @@ public class Employee {
             String typed = input.nextLine();
             if (typed.isEmpty() || typed.isBlank()) {
                 i--;
-                System.out.println(expectedInput + " cannot be empty. Please enter " + expectedInput +" again.");
-            } else if (expectedInput.equals(expectedInputFirstName)) {
-                setFirstName(typed);
-            } else {
-                setLastName(typed);
+                System.out.println(expectedInput + " cannot be empty. Please enter " + expectedInput + " again.");
+            }
+            else{
+                switch (expectedInput){
+                    case expectedInputFirstName: setFirstName(typed);
+                    break;
+                    case expectedInputLastName: setLastName(typed);
+                    break;
+                }
             }
         }
     }
