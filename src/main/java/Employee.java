@@ -12,11 +12,11 @@ public class Employee {
     private final String expectedInputSalary = "Salary";
 
 
-    public void addDetails() {
+    public void addEmployeeDetails() {
         System.out.println("You are adding a new employee.");
-        validateStringInput(expectedInputFirstName);
-        validateStringInput(expectedInputLastName);
-        validateDoubleInput(expectedInputSalary);
+        getValidatedStringInput(expectedInputFirstName);
+        getValidatedStringInput(expectedInputLastName);
+        getvalidatedDoubleInput(expectedInputSalary);
         System.out.println("You have successfully added an employee\n");
     }
 
@@ -40,26 +40,27 @@ public class Employee {
         this.salary = salary;
     }
 
-    public void validateStringInput(String expectedInput) {
+    public void getValidatedStringInput(String expectedInput) {
         for (int i = 0; i < 1; i++) {
             System.out.println(expectedInput + ":");
             String typed = input.nextLine();
             if (typed.isEmpty() || typed.isBlank()) {
                 i--;
                 System.out.println(expectedInput + " cannot be empty. Please enter " + expectedInput + " again.");
-            }
-            else{
-                switch (expectedInput){
-                    case expectedInputFirstName: setFirstName(typed);
-                    break;
-                    case expectedInputLastName: setLastName(typed);
-                    break;
+            } else {
+                switch (expectedInput) {
+                    case expectedInputFirstName:
+                        setFirstName(typed);
+                        break;
+                    case expectedInputLastName:
+                        setLastName(typed);
+                        break;
                 }
             }
         }
     }
 
-    public void validateDoubleInput(String expectedInput) {
+    public void getvalidatedDoubleInput(String expectedInput) {
         for (int i = 0; i < 1; i++) {
             System.out.println(expectedInput + ":");
             try {

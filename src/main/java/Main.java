@@ -44,7 +44,7 @@ public class Main {
     public static void addNewEmployee(List<Employee> list, int quantity) {
         for (int i = 0; i < quantity; i++) {
             Employee newEmployee = new Employee();
-            newEmployee.addDetails();
+            newEmployee.addEmployeeDetails();
             list.add(newEmployee);
         }
     }
