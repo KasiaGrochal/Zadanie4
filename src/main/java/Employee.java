@@ -66,7 +66,7 @@ public class Employee {
             try {
                 setSalary(input.nextDouble());
             } catch (InputMismatchException e) {
-                System.out.println("You've entered a string, please enter an integer value");
+                System.out.println("You've entered a string, please enter an integer or double value");
                 i--;
                 input.nextLine();
             }

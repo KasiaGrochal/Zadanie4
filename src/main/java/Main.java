@@ -35,10 +35,10 @@ public class Main {
 
     public static void printMainMenu() {
         System.out.println("\nPlease type an integer to choose the corresponding action:\n" +
-                "1 - Print sum of all employees salary\n" +
-                "2 - Display all employees data\n" +
-                "3 - Add new employee\n" +
-                "4 - End program\n");
+                "\t1 - Print sum of all employees salary\n" +
+                "\t2 - Display all employees data\n" +
+                "\t3 - Add new employee\n" +
+                "\t4 - End program\n");
     }
 
     public static void addNewEmployee(List<Employee> list, int quantity) {
