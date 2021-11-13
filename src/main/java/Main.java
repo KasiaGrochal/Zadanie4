@@ -10,7 +10,7 @@ public class Main {
         boolean appOn = true;
         List<Employee> employeeList = new ArrayList<>();
 
-        addNewEmployee(employeeList, 2);
+        addNewEmployee(employeeList, 5);
 
         while (appOn) {
             printMainMenu();
