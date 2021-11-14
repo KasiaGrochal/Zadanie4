@@ -7,16 +7,16 @@ public class Employee {
     private String firstName;
     private String lastName;
     private double salary;
-    private final String expectedInputFirstName = "First name";
-    private final String expectedInputLastName = "Last name";
-    private final String expectedInputSalary = "Salary";
 
+    public enum ExpectedInput{
+        FIRST_NAME, LAST_NAME, SALARY
+    }
 
     public void addEmployeeDetails() {
         System.out.println("You are adding a new employee.");
-        getValidatedStringInput(expectedInputFirstName);
-        getValidatedStringInput(expectedInputLastName);
-        getvalidatedDoubleInput(expectedInputSalary);
+        getValidatedStringInput(ExpectedInput.FIRST_NAME);
+        getValidatedStringInput(ExpectedInput.LAST_NAME);
+        getvalidatedDoubleInput(ExpectedInput.SALARY);
         System.out.println("You have successfully added an employee\n");
     }
 
@@ -40,7 +40,7 @@ public class Employee {
         this.salary = salary;
     }
 
-    public void getValidatedStringInput(String expectedInput) {
+    public void getValidatedStringInput(ExpectedInput expectedInput) {
         for (int i = 0; i < 1; i++) {
             System.out.println(expectedInput + ":");
             String typed = input.nextLine();
@@ -49,10 +49,10 @@ public class Employee {
                 System.out.println(expectedInput + " cannot be empty. Please enter " + expectedInput + " again.");
             } else {
                 switch (expectedInput) {
-                    case expectedInputFirstName:
+                    case FIRST_NAME:
                         setFirstName(typed);
                         break;
-                    case expectedInputLastName:
+                    case LAST_NAME:
                         setLastName(typed);
                         break;
                 }
@@ -60,7 +60,7 @@ public class Employee {
         }
     }
 
-    public void getvalidatedDoubleInput(String expectedInput) {
+    public void getvalidatedDoubleInput(ExpectedInput expectedInput) {
         for (int i = 0; i < 1; i++) {
             System.out.println(expectedInput + ":");
             try {
