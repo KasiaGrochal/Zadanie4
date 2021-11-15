@@ -59,7 +59,7 @@ public class Employee {
 
     public void getvalidatedDoubleInput(ExpectedInput expectedInput) {
         for (int i = 0; i < 1; i++) {
-            System.out.println(expectedInput.getDisplayName()+ ":");
+            System.out.println(expectedInput.getDisplayName() + ":");
             try {
                 setSalary(input.nextDouble());
             } catch (InputMismatchException e) {
