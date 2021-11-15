@@ -7,10 +7,7 @@ public class Employee {
     private String firstName;
     private String lastName;
     private double salary;
-
-    public enum ExpectedInput{
-        FIRST_NAME, LAST_NAME, SALARY
-    }
+    private ExpectedInput expectedInput;
 
     public void addEmployeeDetails() {
         System.out.println("You are adding a new employee.");
@@ -42,11 +39,11 @@ public class Employee {
 
     public void getValidatedStringInput(ExpectedInput expectedInput) {
         for (int i = 0; i < 1; i++) {
-            System.out.println(expectedInput + ":");
+            System.out.println(expectedInput.getDisplayName() + ":");
             String typed = input.nextLine();
             if (typed.isEmpty() || typed.isBlank()) {
                 i--;
-                System.out.println(expectedInput + " cannot be empty. Please enter " + expectedInput + " again.");
+                System.out.println(expectedInput.getDisplayName() + " cannot be empty. Please enter " + expectedInput.getDisplayName() + " again.");
             } else {
                 switch (expectedInput) {
                     case FIRST_NAME:
@@ -62,7 +59,7 @@ public class Employee {
 
     public void getvalidatedDoubleInput(ExpectedInput expectedInput) {
         for (int i = 0; i < 1; i++) {
-            System.out.println(expectedInput + ":");
+            System.out.println(expectedInput.getDisplayName()+ ":");
             try {
                 setSalary(input.nextDouble());
             } catch (InputMismatchException e) {
