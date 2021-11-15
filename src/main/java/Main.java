@@ -29,6 +29,8 @@ public class Main {
                     appOn = false;
                     System.out.println("Closing the app...");
                     break;
+                default:
+                    System.out.println("Invalid input for action.");
             }
         }
     }
